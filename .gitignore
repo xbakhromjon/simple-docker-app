@@ -160,3 +160,6 @@ fabric.properties
 /.idea/dataSources.xml
 /.idea/modules.xml
 /.idea/simple-docker-app.iml
+/nohup.out
+/output.log
+/.idea/vcs.xml

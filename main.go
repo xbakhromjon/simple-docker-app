@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq" // Import the PostgreSQL driver
 	"log"
 )
@@ -15,6 +16,7 @@ const (
 	DBNAME   = "simple_docker_app_db"
 )
 
+// 1 - rest API
 func main() {
 	connString := fmt.Sprintf(
 		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
@@ -30,11 +32,11 @@ func main() {
 	}
 	fmt.Println("Successfully connected db")
 
-	//r := gin.Default()
-	//r.GET("/ping", func(c *gin.Context) {
-	//	c.JSON(200, gin.H{
-	//		"message": "pong",
-	//	})
-	//})
-	//r.Run()
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "ping",
+		})
+	})
+	r.Run(":8080")
 }
